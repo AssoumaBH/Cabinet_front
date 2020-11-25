@@ -21,6 +21,7 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
+
 const APP_CONTAINERS = [
   DefaultLayoutComponent
 ];
@@ -41,6 +42,9 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ForgotComponent } from './views/Forgot/Forgot.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ResetComponent } from './views/rest/Reset.Component';
 
 @NgModule({
   imports: [
@@ -56,6 +60,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
   declarations: [
@@ -64,7 +69,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ForgotComponent,
+    ResetComponent
   ],
   providers: [{
     provide: LocationStrategy,

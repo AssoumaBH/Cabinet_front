@@ -6,8 +6,11 @@ import { DefaultLayoutComponent } from './containers';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
+import { ForgotComponent } from './views/Forgot/Forgot.component';
+import { ResetComponent } from './views/rest/Reset.Component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+
 
 export const routes: Routes = [
   {
@@ -37,12 +40,27 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'forgot',
+    component: ForgotComponent,
+    data: {
+      title: 'Forgot Page'
+    }
+  },
+  {
+    path: 'reset',
+    component: ResetComponent,
+    data: {
+      title: 'reset Page'
+    }
+  },
+  {
     path: 'register',
     component: RegisterComponent,
     data: {
       title: 'Register Page'
     }
   },
+  
   {
     path: '',
     component: DefaultLayoutComponent,

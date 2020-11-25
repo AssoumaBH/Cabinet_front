@@ -6,30 +6,32 @@
             <div class="card-group">
               <div class="card p-4">
                 <div class="card-body">
-                  <form [formGroup]="Forgot">
-                    <h1>Forgot</h1>
-                    <p class="text-muted">Saisir Email </p>
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">@</span>
+           
+
+                  <h5 class="card-title text-center">Forgot Password</h5>
+                  <div>
+                      <div id="errorMsg" *ngIf="errorMessage">
+                          <span>{{errorMessage}}</span>
                       </div>
-                      <input type="email" formControlName="email" id="defaultLoginFormEmail" class="form-control"
-                        placeholder="Email" autocomplete="Email" required>
-                    </div>
-                    <div class="input-group mb-4">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="icon-lock"></i></span>
+                      <div id="successMsg" *ngIf="successMessage">
+                          <span>{{successMessage}}</span>
                       </div>
-                      
-                    </div>
-                    <div class="row">
-                      <div class="col-6">
-                        <button (click)='' type="submit" class="btn btn-primary px-4">Confirmer</button>
-                      </div>
-                     
-                    </div>
-                  </form>
-  
+                      <form  [formGroup]="RequestResetForm" (ngSubmit)="RequestResetUser(RequestResetForm)">
+                          <div class="form-group">
+                              <input _ngcontent-c0="" class="form-control form-control-lg" placeholder="email"
+                                  type="text"  formControlName="email" id="defaultLoginFormEmail"/>
+                              <span *ngIf="!RequestResetForm.get('email').valid && !IsvalidForm"
+                                  class="help-block">Please enter a valid email!</span>
+                          </div>
+                          <div class="form-group">
+                              <div>
+                                  <button  type="submit" class=" btn btn-primary">Reset
+                                      Password</button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+
                 </div>
   
               </div>
@@ -37,6 +39,5 @@
             </div>
           </div>
         </div>
-      </div>
     </main>
   </div>
