@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserServiceService } from '../services/user-service.service';
-
+import { MustMatch } from '../_helpers/must-match.validator';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,78 +11,45 @@ import { UserServiceService } from '../services/user-service.service';
 export class RegisterComponent implements OnInit {
 
   formRegister: FormGroup
-  public color: string;
-
+  color: string;
+  submitted: boolean = false;
 
   constructor(
 
-    public userService: UserServiceService, 
-    private router : Router
+    public userService: UserServiceService,
+    private router: Router
   ) {
 
     this.formRegister = new FormGroup({
-      nom: new FormControl('', [ Validators.required]),
-      prenom: new FormControl('', [ Validators.required]),
+      nom: new FormControl('', [Validators.required]),
+      prenom: new FormControl('', [Validators.required]),
       dateNaissance: new FormControl('', [, Validators.required]),
       sexe: new FormControl('', [, Validators.required]),
       adresse: new FormControl('', [, Validators.required]),
       tel: new FormControl('', [, Validators.required]),
       NumCNSS: new FormControl('', [, Validators.required]),
       email: new FormControl('', [, Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required,  Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}$/)])
-    })
+      password: new FormControl('', [Validators.required, Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}$/)]),
+      passwordConfirm: new FormControl('', [Validators.required],)
 
+    }, {
+  // validator: MustMatch('password', 'passwordConfirm')
+    });
   }
 
   ngOnInit() {
-
   }
+
   signUp() {
-
-    if (this.formRegister.valid) {
-      this.userService.pushtolocalstorgeUser(this.formRegister.value)
-      console.log(this.formRegister.value);
-      console.log('form valid Yes');
-      // window.location.href = '/login';
-      this.router.navigateByUrl('/login')
+    this.submitted = true;
+    if (this.formRegister.invalid) {
+      return;
     }
-    else {
-      console.log('form In valid Noo');
-      console.log(this.formRegister);
-    }
-  }
-
-
-  get nom() { return this.formRegister.get('nom'); }
-  get prenom() { return this.formRegister.get('prenom'); }
-  get dateNaissance() { return this.formRegister.get('dateNaissance'); }
-  get sexe() { return this.formRegister.get('sexe'); }
-  get adresse() { return this.formRegister.get('adresse'); }
-  get tel() { return this.formRegister.get('tel'); }
-  get NumCNSS() { return this.formRegister.get('NumCNSS'); }
-  get email() { return this.formRegister.get('email'); }
-  get password() { return this.formRegister.get('password'); }
-
-
-
-  getvalid() {
-    this.color = 'transparent';
-    if (this.formRegister.controls['nom'].valid) {
-      this.color = 'green';
-    }
-
-    if (this.formRegister.controls['nom'].invalid) {
-      this.color = 'red';
-    }
-  }
-  getvalidL() {
-    this.color = 'transparent';
-    if (this.formRegister.controls['prenom'].valid) {
-      this.color = 'green';
-    }
-
-    if (this.formRegister.controls['prenom'].invalid) {
-      this.color = 'red';
-    }
+    this.userService.register(this.formRegister.value).subscribe((response) => {
+      console.log(response);
+      this.router.navigateByUrl('/login');
+    }, (error) => {
+      console.log(error);
+    });
   }
 }
