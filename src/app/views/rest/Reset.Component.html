@@ -1,66 +1,66 @@
 <div class="app-body">
-    <main class="main d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 mx-auto">
-                    <div class="card-group">
-                        <div class="card p-4">
-                            <div class="card-body p-4">
-                                <h5 class="card-title ">Set New Password</h5>
-                                <div>
-                                    <div id="errorMsg" *ngIf="errorMessage">
-                                        <span>{{errorMessage}}</span>
-                                    </div>
-                                    <div id="successMsg" *ngIf="successMessage">
-                                        <span>{{successMessage}}</span>
-                                    </div>
-                                    <form action="" [formGroup]="ResponseResetForm"
-                                        (ngSubmit)="ResetPassword(ResponseResetForm)">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                              <span class="input-group-text"><i class="icon-lock"></i></span>
-                                            </div>
-                                            <input type="password" class="form-control" formControlName="password"
-                                              placeholder="Type your password here"
-                                              [ngClass]="{'is-invalid': submitted && formRegister.controls.password.errors, 'is-valid': submitted && !formRegister.controls.password.errors}">
-                                            <div *ngIf="submitted && formRegister.controls.password.errors" class="invalid-feedback d-block">
-                                              <div *ngIf="formRegister.get('password').hasError('required')">The password is required.</div>
-                                              <div *ngIf="formRegister.get('password').hasError('pattern')">The password must contain ...</div>
-                                            </div>
-                                          </div>
-                                          <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                              <span class="input-group-text"><i class="icon-lock"></i></span>
-                                            </div>
-                                            <input type="password" class="form-control" formControlName="passwordConfirm"
-                                              placeholder="Repeat your password here"
-                                              [ngClass]="{'is-invalid': submitted && formRegister.controls.passwordConfirm.errors, 'is-valid': submitted && !formRegister.controls.passwordConfirm.errors}">
-                                            <div *ngIf="submitted && formRegister.controls.passwordConfirm.errors"
-                                              class="invalid-feedback d-block">
-                                              <div *ngIf="formRegister.get('passwordConfirm').hasError('required')">The password Confirm is
-                                                required.
-                                              </div>
-                                              <div *ngIf="formRegister.passwordConfirm.errors.mustMatch">Passwords must match</div>
-                                            </div>
-                                          </div>
-                                        <div class="input-group mb-3">
-                                            <div>
-
-                                                <button type="submit" class="  btn btn-primary">Update
-                                                    Password</button>
-
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card-group">
+            <div class="card p-4">
+              <div class="card-body p-4">
+                <h5 class="card-title ">Set New Password</h5>
+                <div>
+                  <div id="errorMsg" *ngIf="errorMessage">
+                    <span>{{errorMessage}}</span>
+                  </div>
+                  <div id="successMsg" *ngIf="successMessage">
+                    <span>{{successMessage}}</span>
+                  </div>
+                  <form action="" [formGroup]="ResponseResetForm" (ngSubmit)="ResetPassword(ResponseResetForm)">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="icon-lock"></i></span>
+                      </div>
+                      <input type="password" class="form-control" formControlName="password"
+                        placeholder="Type your password here"
+                        [ngClass]="{'is-invalid': submitted && ResponseResetForm.controls.password.errors, 'is-valid': submitted && !ResponseResetForm.controls.password.errors}">
+                      <div *ngIf="submitted && ResponseResetForm.controls.password.errors" class="invalid-feedback d-block">
+                        <div *ngIf="ResponseResetForm.get('password').hasError('required')">The password is required.</div>
+                        <div *ngIf="ResponseResetForm.get('password').hasError('pattern')">The password must contain ...
                         </div>
-
+                      </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="icon-lock"></i></span>
+                      </div>
+                      <input type="password" class="form-control" formControlName="passwordConfirm"
+                        placeholder="Repeat your password here"
+                        [ngClass]="{'is-invalid': submitted && ResponseResetForm.controls.passwordConfirm.errors, 'is-valid': submitted && !ResponseResetForm.controls.passwordConfirm.errors}">
+                      <div *ngIf="submitted && ResponseResetForm.controls.passwordConfirm.errors"
+                        class="invalid-feedback d-block">
+                        <div *ngIf="ResponseResetForm.get('passwordConfirm').hasError('required')">The password Confirm is
+                          required.
+                        </div>
+                        <div *ngIf="ResponseResetForm.passwordConfirm.errors.mustMatch">Passwords must match</div>
+                      </div>
+                    </div>
+                    <div class="input-group mb-3">
+                      <div>
 
-</main>
+                        <button type="submit" class="  btn btn-primary">Update
+                          Password</button>
+
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
 </div>

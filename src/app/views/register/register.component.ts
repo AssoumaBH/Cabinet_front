@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { UserServiceService } from '../services/user-service.service';
-import { MustMatch } from '../_helpers/must-match.validator';
-
+ 
 @Component({
   selector: 'app-dashboard',
   templateUrl: 'register.component.html'
@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
   formRegister: FormGroup
   color: string;
   submitted: boolean = false;
-
+ 
   constructor(
 
     public userService: UserServiceService,
@@ -30,10 +30,8 @@ export class RegisterComponent implements OnInit {
       NumCNSS: new FormControl('', [, Validators.required]),
       email: new FormControl('', [, Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}$/)]),
-      passwordConfirm: new FormControl('', [Validators.required],)
+      passwordConfirm: new FormControl('', [Validators.required,RxwebValidators.compare({fieldName:'password' })])
 
-    }, {
-  // validator: MustMatch('password', 'passwordConfirm')
     });
   }
 

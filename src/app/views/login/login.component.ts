@@ -10,8 +10,9 @@ import { UserServiceService } from '../services/user-service.service';
 export class LoginComponent implements OnInit {
 
   formLogin: FormGroup
-  submitted: boolean = false;
+  submitted = true;
   router: any;
+
   constructor(
     public userService: UserServiceService
 
@@ -30,18 +31,6 @@ export class LoginComponent implements OnInit {
 
   authentification() {
     
-
-    var tab = JSON.parse(localStorage.getItem("user")) || [];
-    var psw = this.formLogin.controls['password'].value;
-    var mail = this.formLogin.controls['email'].value;
-    console.log('passs', psw);
-    console.log('mail', mail);
-
-
-
-    for (let i = 0; i < tab.length; i++) {
-      if (tab[i].Email == mail && tab[i].Passwrd == psw) {
-        
     this.submitted = true;
     if (this.formLogin.invalid) {
       return;
@@ -53,18 +42,4 @@ export class LoginComponent implements OnInit {
       console.log(error);
     });
   }
-
-     /*   if (tab[i].food === 'user') {
-          localStorage.setItem('connectedUser', JSON.stringify(tab[i]));
-          console.log('yes ath valid userr')
-          alert('user')
-        }
-        else {
-          localStorage.setItem('connectedUser', JSON.stringify(tab[i]));
-          console.log('yes ath valid adminn')
-          alert('admin')
-        }
-      */
-
-  }
-}}
+}

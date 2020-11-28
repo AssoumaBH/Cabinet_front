@@ -45,6 +45,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ForgotComponent } from './views/Forgot/Forgot.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ResetComponent } from './views/rest/Reset.Component';
+import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 @NgModule({
   imports: [
@@ -61,7 +62,8 @@ import { ResetComponent } from './views/rest/Reset.Component';
     TabsModule.forRoot(),
     ChartsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RxReactiveFormsModule
   ],
   declarations: [
     AppComponent,

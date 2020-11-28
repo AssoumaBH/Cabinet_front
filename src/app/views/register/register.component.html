@@ -124,7 +124,7 @@
                     <div *ngIf="formRegister.get('passwordConfirm').hasError('required')">The password Confirm is
                       required.
                     </div>
-                    <div *ngIf="formRegister.passwordConfirm.errors.mustMatch">Passwords must match</div>
+                    <div  *ngIf="formRegister.controls.passwordConfirm.errors.compare" >Passwords must match</div>
                   </div>
                 </div>
                 <button type="submit" class="btn btn-block btn-success">Create Account</button>
