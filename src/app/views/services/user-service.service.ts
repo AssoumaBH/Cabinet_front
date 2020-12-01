@@ -20,6 +20,7 @@ export class UserServiceService {
 
   public login(user): Observable<any> {
     return this.http.post(this.baseURL + 'login', user)
+   
   }
 
   public getMail(mail:string){

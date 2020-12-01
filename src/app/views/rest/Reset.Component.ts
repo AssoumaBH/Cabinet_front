@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Router, ActivatedRoute } from '@angular/router';
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { UserServiceService } from '../services/user-service.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class ResetComponent implements OnInit {
   successMessage: string;
   resetToken: null;
   CurrentState: any;
-  IsResetFormValid = true;
+  submitted = false;
   constructor(
     private userService: UserServiceService,
     private router: Router,
@@ -52,20 +53,20 @@ export class ResetComponent implements OnInit {
       {
         resettoken: [this.resetToken],
         newPassword: ['', [Validators.required, Validators.minLength(4)]],
-        confirmPassword: ['', [Validators.required, Validators.minLength(4)]]
+        confirmPassword: ['', [Validators.required, Validators.minLength(4),RxwebValidators.compare({fieldName:'newPassword' })]]
       }
     );
   }
 
   Validate(passwordFormGroup: FormGroup) {
-    const new_password = passwordFormGroup.controls.newPassword.value;
-    const confirm_password = passwordFormGroup.controls.confirmPassword.value;
+    const newPassword = passwordFormGroup.controls.newPassword.value;
+    const confirmPassword = passwordFormGroup.controls.confirmPassword.value;
 
-    if (confirm_password.length <= 0) {
+    if (confirmPassword.length <= 0) {
       return null;
     }
 
-    if (confirm_password !== new_password) {
+    if (confirmPassword !== newPassword) {
       return {
         doesNotMatch: true
       };
@@ -75,10 +76,10 @@ export class ResetComponent implements OnInit {
   }
 
 
-  ResetPassword(form) {
-    console.log(form.get('confirmPassword'));
-    if (form.valid) {
-      this.IsResetFormValid = true;
+  ResetPassword() {
+   
+    this.submitted = true;
+    if (this.ResponseResetForm.invalid) {
       this.userService.newPassword(this.ResponseResetForm.value).subscribe(
         data => {
           this.ResponseResetForm.reset();
@@ -94,6 +95,6 @@ export class ResetComponent implements OnInit {
           }
         }
       );
-    } else { this.IsResetFormValid = false; }
+    } else { this.submitted = false; }
   }
 }

@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 mx-auto">
-          <div class="card-group">
+          <div class="card-group p-5">
             <div class="card p-4">
               <div class="card-body p-4">
                 <h5 class="card-title ">Set New Password</h5>
@@ -14,17 +14,17 @@
                   <div id="successMsg" *ngIf="successMessage">
                     <span>{{successMessage}}</span>
                   </div>
-                  <form action="" [formGroup]="ResponseResetForm" (ngSubmit)="ResetPassword(ResponseResetForm)">
+                  <form action="" [formGroup]="ResponseResetForm" (ngSubmit)="ResetPassword()">
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="icon-lock"></i></span>
                       </div>
-                      <input type="password" class="form-control" formControlName="password"
+                      <input type="password" class="form-control" formControlName="newPassword"
                         placeholder="Type your password here"
-                        [ngClass]="{'is-invalid': submitted && ResponseResetForm.controls.password.errors, 'is-valid': submitted && !ResponseResetForm.controls.password.errors}">
-                      <div *ngIf="submitted && ResponseResetForm.controls.password.errors" class="invalid-feedback d-block">
-                        <div *ngIf="ResponseResetForm.get('password').hasError('required')">The password is required.</div>
-                        <div *ngIf="ResponseResetForm.get('password').hasError('pattern')">The password must contain ...
+                        [ngClass]="{'is-invalid': submitted && ResponseResetForm.controls.newPassword.errors, 'is-valid': submitted && !ResponseResetForm.controls.newPassword.errors}">
+                      <div *ngIf="submitted && ResponseResetForm.controls.newPassword.errors" class="invalid-feedback d-block">
+                        <div *ngIf="ResponseResetForm.get('newPassword').hasError('required')">The password is required.</div>
+                        <div *ngIf="ResponseResetForm.get('newPassword').hasError('pattern')">The password must contain ...
                         </div>
                       </div>
                     </div>
@@ -32,15 +32,15 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="icon-lock"></i></span>
                       </div>
-                      <input type="password" class="form-control" formControlName="passwordConfirm"
+                      <input type="password" class="form-control" formControlName="confirmPassword"
                         placeholder="Repeat your password here"
-                        [ngClass]="{'is-invalid': submitted && ResponseResetForm.controls.passwordConfirm.errors, 'is-valid': submitted && !ResponseResetForm.controls.passwordConfirm.errors}">
-                      <div *ngIf="submitted && ResponseResetForm.controls.passwordConfirm.errors"
+                        [ngClass]="{'is-invalid': submitted && ResponseResetForm.controls.confirmPassword.errors, 'is-valid': submitted && !ResponseResetForm.controls.confirmPassword.errors}">
+                      <div *ngIf="submitted && ResponseResetForm.controls.confirmPassword.errors"
                         class="invalid-feedback d-block">
-                        <div *ngIf="ResponseResetForm.get('passwordConfirm').hasError('required')">The password Confirm is
+                        <div *ngIf="ResponseResetForm.get('confirmPassword').hasError('required')">The password Confirm is
                           required.
                         </div>
-                        <div *ngIf="ResponseResetForm.passwordConfirm.errors.mustMatch">Passwords must match</div>
+                        <div  *ngIf="ResponseResetForm.controls.confirmPassword.errors.compare" >Passwords must match</div>
                       </div>
                     </div>
                     <div class="input-group mb-3">

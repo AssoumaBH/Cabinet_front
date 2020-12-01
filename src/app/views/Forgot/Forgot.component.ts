@@ -13,7 +13,7 @@ export class ForgotComponent  implements OnInit {
   forbiddenEmails: any;
   errorMessage: string;
   successMessage: string;
-  submitted = true;
+  submitted = false;
 
   constructor(
     private userService: UserServiceService,
@@ -29,12 +29,13 @@ export class ForgotComponent  implements OnInit {
       'email': new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails),
     });
   }
+  get f() { return this.RequestResetForm.controls;}
 
-
-  RequestResetUser(form) {
-    console.log(form)
-    if (form.valid) {
-      this.submitted = true;
+  RequestResetUser() {
+    console.log()
+    this.submitted = true;
+    if (this.RequestResetForm.invalid) {
+    
       this.userService.requestReset(this.RequestResetForm.value).subscribe(
         data => {
           this.RequestResetForm.reset();

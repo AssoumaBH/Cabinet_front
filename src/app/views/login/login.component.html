@@ -5,8 +5,8 @@
         <div class="col-md-8 mx-auto">
           <div class="card-group">
             <div class="card p-4">
-              <div class="card-body">
-                <form [formGroup]="formLogin" (ngSubmit)="authentification()">
+              <div class="card-body p-4">
+                <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
                   <h1>Login</h1>
                   <p class="text-muted">Sign In to your account</p>
                   <div class="input-group mb-3">
@@ -24,9 +24,9 @@
                       <span class="input-group-text"><i class="icon-lock"></i></span>
                     </div>
                     <input type="password" formControlName="password"class="form-control" placeholder="Type your Password here"
-                    [ngClass]="{'is-invalid': submitted && formLogin.controls.Password.errors, 'is-valid': submitted && !formLogin.controls.Password.errors}">
-                  <div *ngIf="submitted && formLogin.controls.Password.errors" class="invalid-feedback d-block">
-                    <div *ngIf="formLogin.get('Password').hasError('required')">The Password is required.</div>
+                    [ngClass]="{'is-invalid': submitted && formLogin.controls.password.errors, 'is-valid': submitted && !formLogin.controls.password.errors}">
+                  <div *ngIf="submitted && formLogin.controls.password.errors" class="invalid-feedback d-block">
+                    <div *ngIf="formLogin.get('password').hasError('required')">The Password is required.</div>
                   </div>
                 </div>
                   <div class="row">
