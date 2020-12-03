@@ -86,7 +86,7 @@ export class ResetComponent implements OnInit {
           this.successMessage = data.message;
           setTimeout(() => {
             this.successMessage = null;
-            this.router.navigate(['login']);
+            this.router.navigate(['/login']);
           }, 3000);
         },
         err => {

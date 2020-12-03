@@ -37,12 +37,14 @@ export class ForgotComponent  implements OnInit {
     if (this.RequestResetForm.invalid) {
     
       this.userService.requestReset(this.RequestResetForm.value).subscribe(
-        data => {
+        (bodyResponse) => { console.log(bodyResponse);
+
           this.RequestResetForm.reset();
+          this.successMessage = bodyResponse.message;
           this.successMessage = "Reset password link send to email sucessfully.";
           setTimeout(() => {
             this.successMessage = null;
-            this.router.navigateByUrl('/login');
+            this.router.navigateByUrl('/forgot-password');
           });
         },
         err => {

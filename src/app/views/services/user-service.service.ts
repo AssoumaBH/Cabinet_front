@@ -30,12 +30,14 @@ export class UserServiceService {
   public getPasswod(psw:any){
     return this.users.find((user:any)=> user.Passwrd===psw);
   }
-  requestReset(body): Observable<any> {
-    return this.http.post(`${this.baseURL}req-reset-password`, body);
+  requestReset(email:any): Observable<any> {
+   // return this.http.post(`${this.baseURL}req-reset-password`, body);
+    return this.http.post(this.baseURL + 'forgot-password',  email);
   }
 
-  newPassword(body): Observable<any> {
-    return this.http.post(`${this.baseURL}new-password`, body);
+  newPassword(bodyData): Observable<any> {
+   // return this.http.post(`${this.baseURL}new-password`, body);
+   return this.http.post(this.baseURL + 'rest-password',  bodyData);
   }
   ValidPasswordToken(body): Observable<any> {
     return this.http.post(`${this.baseURL}valid-password-token`, body);
