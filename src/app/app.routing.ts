@@ -10,6 +10,7 @@ import { ForgotComponent } from './views/Forgot/Forgot.component';
 import { ResetComponent } from './views/rest/Reset.Component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+import { rdvComponent } from './views/rdv/rdv.component';
 
 
 export const routes: Routes = [
@@ -58,6 +59,13 @@ export const routes: Routes = [
     component: RegisterComponent,
     data: {
       title: 'Register Page'
+    }
+  },
+  {
+    path: 'Rendez',
+    component: rdvComponent,
+    data: {
+      title: 'RDV Page'
     }
   },
   

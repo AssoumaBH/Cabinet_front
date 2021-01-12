@@ -46,6 +46,7 @@ import { ForgotComponent } from './views/Forgot/Forgot.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ResetComponent } from './views/rest/Reset.Component';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
+import { rdvComponent } from './views/rdv/rdv.component';
 
 @NgModule({
   imports: [
@@ -73,7 +74,8 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
     LoginComponent,
     RegisterComponent,
     ForgotComponent,
-    ResetComponent
+    ResetComponent,
+    rdvComponent
   ],
   providers: [{
     provide: LocationStrategy,

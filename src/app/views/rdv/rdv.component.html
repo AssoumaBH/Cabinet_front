@@ -1,0 +1,86 @@
+<div class="animated fadeIn">
+
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <strong>Rendez_vous </strong>Patient
+          </div>
+          <div class="card-body">
+            <!-- <form [formGroup]="formRdv" class="form-horizontal">
+  
+                <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="text-input">NomPatient</label>
+                <div class="col-md-9">
+                  <input type="text" id="text-input" name="text-input" class="form-control" formControlName="name"
+                    placeholder="Type your name here"
+                    [ngClass]="{'is-invalid': submitted && formRdv.controls.name.errors, 'is-valid': submitted && !formRdv.controls.name.errors}">
+                  <div *ngIf="submitted && formRdv.controls.name.errors" class="invalid-feedback d-block">
+                    <div *ngIf="formRdv.get('name').hasError('required')">The E-mail is required.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="email-input">NomDocteur</label>
+                <div class="col-md-9">
+                  <select id="multiple-select" name="multiple-select" class="form-control" size="5" formControlName="nameDoct" placeholder="Type your nameDoct here"
+                  [ngClass]="{'is-invalid': submitted && formRdv.controls.nameDoct.errors, 'is-valid': submitted && !formRdv.controls.nameDoct.errors}">
+                
+                    <option value="Docteur1">Docteur1</option>
+                    <option value="Docteur2">Docteur2</option>
+                    <option value="Docteur3">Docteur3</option>
+                  </select>
+                  <div *ngIf="submitted && formRdv.controls.nameDoct.errors" class="invalid-feedback d-block">
+                    <div *ngIf="formRdv.get('nameDoct').hasError('required')">The name of docteur is required.</div>
+                </div>
+  
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="date-input">Date du Rendez_vous</label>
+                <div class="col-md-9">
+                  <input class="form-control" id="date-input" type="date" name="date-input" formControlName="brith" placeholder="Type your brith here"
+                  [ngClass]="{'is-invalid': submitted && formRdv.controls.brith.errors, 'is-valid': submitted && !formRdv.controls.brith.errors}">
+                  <div *ngIf="submitted && formRdv.controls.brith.errors" class="invalid-feedback d-block">
+                    <div *ngIf="formRdv.get('brith').hasError('required')">The name of docteur is required.</div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="disabled-input">L'heure</label>
+                <div class="col-md-9">
+                  <input type="text" id="disabled-input" name="disabled-input" class="form-control" formControlName="time" placeholder="Type your time here"
+                  [ngClass]="{'is-invalid': submitted && formRdv.controls.time.errors, 'is-valid': submitted && !formRdv.controls.time.errors}">
+                  <div *ngIf="submitted && formRdv.controls.time.errors" class="invalid-feedback d-block">
+                    <div *ngIf="formRdv.get('time').hasError('required')">The time is required.</div>
+              
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="textarea-input">Description</label>
+                <div class="col-md-9">
+                <textarea id="textarea-input" name="textarea-input" rows="9" class="form-control"
+                    formControlName="description" placeholder="Type your description here"
+                    [ngClass]="{'is-invalid': submitted && formRdv.controls.description.errors, 'is-valid': submitted && !formRdv.controls.description.errors}">
+                </textarea>
+                  <div *ngIf="submitted && formRdv.controls.description.errors" class="invalid-feedback d-block">
+                    <div *ngIf="formRdv.get('description').hasError('required')">The description is required.</div>
+                  </div>
+                </div>
+              </div>
+  
+            </form>-->
+          </div>
+          <div class="card-footer">
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+            <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+          </div>
+        </div>
+  
+      </div>
+  
+    </div>
+    <!--/.row-->
+  
+  </div>
