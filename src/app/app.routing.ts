@@ -11,7 +11,7 @@ import { ResetComponent } from './views/rest/Reset.Component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { rdvComponent } from './views/rdv/rdv.component';
-
+import {  ListRdvComponet } from './views/ListRDV/ListRdv.component';
 
 export const routes: Routes = [
   {
@@ -66,6 +66,13 @@ export const routes: Routes = [
     component: rdvComponent,
     data: {
       title: 'RDV Page'
+    }
+  },
+  {
+    path: 'List',
+    component:  ListRdvComponet,
+    data: {
+      title: 'List Page'
     }
   },
   
