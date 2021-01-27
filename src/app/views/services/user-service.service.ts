@@ -8,11 +8,8 @@ import { environment } from '../../../environments/environment';
 })
 export class UserServiceService {
   baseURL:String = environment.baseURL;
-  public users: any;
   constructor(private http: HttpClient) { 
-    this.users = JSON.parse(localStorage.getItem("user")) || [];
   }
-
 
   public register(user: any): Observable<any> {
     return this.http.post(this.baseURL + 'register', user)
@@ -23,13 +20,7 @@ export class UserServiceService {
    
   }
 
-  public getMail(mail:string){
-    return this.users.find((user:any)=> user.Email===mail);
-  }
-  
-  public getPasswod(psw:any){
-    return this.users.find((user:any)=> user.Passwrd===psw);
-  }
+ 
   requestReset(email:any): Observable<any> {
    // return this.http.post(`${this.baseURL}req-reset-password`, body);
     return this.http.post(this.baseURL + 'forgot-password',  email);

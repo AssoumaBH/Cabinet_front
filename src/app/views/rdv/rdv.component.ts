@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { RDVServiceService } from '../services/rdv-service.service';
 import { UserServiceService } from '../services/user-service.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class rdvComponent implements OnInit {
   constructor(
 
     public userService: UserServiceService,
+    public rdvService: RDVServiceService,
     
   ) {
 
@@ -31,7 +33,7 @@ export class rdvComponent implements OnInit {
     if (this.formRdv.invalid) {
       return;
     }
-    this.userService.register(this.formRdv.value).subscribe((response) => {
+    this.rdvService.reservation(this.formRdv.value).subscribe((response) => {
       console.log(response);
       this.router.navigateByUrl('/login');
     }, (error) => {
