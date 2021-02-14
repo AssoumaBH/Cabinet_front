@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
       sexe: new FormControl('', [, Validators.required]),
       adresse: new FormControl('', [, Validators.required]),
       tel: new FormControl('', [, Validators.required]),
-      NumCNSS: new FormControl('', [, Validators.required]),
+      numCNSS: new FormControl('', [, Validators.required]),
       email: new FormControl('', [, Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}$/)]),
       passwordConfirm: new FormControl('', [Validators.required,RxwebValidators.compare({fieldName:'password' })])

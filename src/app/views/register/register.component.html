@@ -82,11 +82,11 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-user"></i></span>
                   </div>
-                  <input type="text" class="form-control" formControlName="NumCNSS"
+                  <input type="text" class="form-control" formControlName="numCNSS"
                     placeholder="type your social security number"
-                    [ngClass]="{'is-invalid': submitted && formRegister.controls.NumCNSS.errors, 'is-valid': submitted && !formRegister.controls.NumCNSS.errors}">
-                  <div *ngIf="submitted && formRegister.controls.NumCNSS.errors" class="invalid-feedback d-block">
-                    <div *ngIf="formRegister.get('NumCNSS').hasError('required')">The social number is required.</div>
+                    [ngClass]="{'is-invalid': submitted && formRegister.controls.numCNSS.errors, 'is-valid': submitted && !formRegister.controls.numCNSS.errors}">
+                  <div *ngIf="submitted && formRegister.controls.numCNSS.errors" class="invalid-feedback d-block">
+                    <div *ngIf="formRegister.get('numCNSS').hasError('required')">The social number is required.</div>
                   </div>
                 </div>
                 <div class="input-group mb-3">

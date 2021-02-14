@@ -11,8 +11,10 @@ export class UserServiceService {
   constructor(private http: HttpClient) { 
   }
 
-  public register(user: any): Observable<any> {
-    return this.http.post(this.baseURL + 'register', user)
+  public register(patient: any): Observable<any> {
+    console.log(patient);
+    
+    return this.http.post(this.baseURL + 'patients', patient)
   }
 
   public login(user): Observable<any> {
@@ -20,7 +22,6 @@ export class UserServiceService {
    
   }
 
- 
   requestReset(email:any): Observable<any> {
    // return this.http.post(`${this.baseURL}req-reset-password`, body);
     return this.http.post(this.baseURL + 'forgot-password',  email);
