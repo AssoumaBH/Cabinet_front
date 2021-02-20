@@ -43,11 +43,13 @@ export class RegisterComponent implements OnInit {
     if (this.formRegister.invalid) {
       return;
     }
+    
     this.userService.register(this.formRegister.value).subscribe((response) => {
       console.log(response);
       this.router.navigateByUrl('/login');
     }, (error) => {
       console.log(error);
     });
+
   }
 }
