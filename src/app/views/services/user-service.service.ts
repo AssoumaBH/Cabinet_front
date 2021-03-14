@@ -14,11 +14,11 @@ export class UserServiceService {
   public register(patient: any): Observable<any> {
     console.log(patient);
     
-    return this.http.post(this.baseURL + 'patients', patient)
+    return this.http.post(this.baseURL + '/auth/register', patient)
   }
 
   public login(user): Observable<any> {
-    return this.http.post(this.baseURL + 'login', user)
+    return this.http.post(this.baseURL + '/auth/login', user)
    
   }
 

@@ -2,9 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -43,11 +41,15 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ForgotComponent } from './views/Forgot/Forgot.component';
-import { HttpClientModule } from '@angular/common/http';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+
 import { ResetComponent } from './views/rest/Reset.Component';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { rdvComponent } from './views/rdv/rdv.component';
 import { ListRdvComponet } from './views/ListRDV/ListRdv.component';
+import { TokenInterceptorService } from './views/providers/token-interceptor.service';
 @NgModule({
   imports: [
     BrowserModule,
@@ -79,8 +81,9 @@ import { ListRdvComponet } from './views/ListRDV/ListRdv.component';
     ListRdvComponet
   ],
   providers: [{
-    provide: LocationStrategy,
-    useClass: HashLocationStrategy
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenInterceptorService,
+    multi: true
   }],
   bootstrap: [ AppComponent ]
 })
